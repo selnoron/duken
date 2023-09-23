@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Duken</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <a href="/create/">add new product</a>
+    <form action="/" method="post"> {% csrf_token %}
+        {% for prod in products %}
+            <div style="width: 300px;">
+                <input type="checkbox" class="num" name="ch" id="{{prod.id}}" value="{{ prod.name }}"> <span for="{{ prod.id }}">{{ prod.name }} - {{ prod.price }} tg</span>
+            </div>
+        {% endfor %}
+        <input type="submit" value="START">
+    </form>
+</body>
+</html>
